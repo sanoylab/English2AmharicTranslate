@@ -233,6 +233,124 @@
         .message_template {
             display: none;
         }
+
+        /* show original */
+
+     
+
+/**
+ * Code for checkboxes
+ */
+.checkbox {
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  margin-right: .75rem;
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: 0;
+  /**
+   * Iterate over map and autogenerate helper classes.
+  * See "https://codepen.io/fxm90/pen/zGjjrJ" for an example
+  */
+}
+.checkbox:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #f2f2f2;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.checkbox:checked:before {
+  height: 50%;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  border-top-style: none;
+  border-right-style: none;
+}
+.checkbox--red:checked:before {
+  border-color: #f44336;
+}
+.checkbox--pink:checked:before {
+  border-color: #e91e63;
+}
+.checkbox--purple:checked:before {
+  border-color: #9c27b0;
+}
+.checkbox--deep-purple:checked:before {
+  border-color: #673ab7;
+}
+.checkbox--indigo:checked:before {
+  border-color: #3f51b5;
+}
+.checkbox--blue:checked:before {
+  border-color: #2196f3;
+}
+.checkbox--light-blue:checked:before {
+  border-color: #03a9f4;
+}
+.checkbox--cyan:checked:before {
+  border-color: #00bcd4;
+}
+.checkbox--teal:checked:before {
+  border-color: #009688;
+}
+.checkbox--green:checked:before {
+  border-color: #4caf50;
+}
+.checkbox--light-green:checked:before {
+  border-color: #8bc34a;
+}
+.checkbox--lime:checked:before {
+  border-color: #cddc39;
+}
+.checkbox--yellow:checked:before {
+  border-color: #ffeb3b;
+}
+.checkbox--amber:checked:before {
+  border-color: #ffc107;
+}
+.checkbox--orange:checked:before {
+  border-color: #ff9800;
+}
+.checkbox--deep-orange:checked:before {
+  border-color: #ff5722;
+}
+.checkbox--blue-grey:checked:before {
+  border-color: #607d8b;
+}
+
+/**
+* Notice: Checkbox is styled via import of my other pen (https://codepen.io/fxm90/pen/JdmaeL)
+*/
+.trigger input[type="checkbox"] + span {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: visibility 0s linear 0.33s, opacity 0.33s linear;
+  transition: visibility 0s linear 0.33s, opacity 0.33s linear;
+}
+.trigger input[type="checkbox"]:checked + span {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+}
+
+.msg {
+  display: block;
+  margin-top: 8px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
     </style>
 </head>
 
@@ -306,15 +424,22 @@
 
                         resultList.push(result.match(/\"(.*?)\"/)[1]);
 
-                        resultList.forEach((res) => {
-                            s.push(
-                                `${res} <sup>${new Date().toLocaleTimeString()}</sup>`);
-                        })
+                        let textMessage = `
+                        ${result.match(/\"(.*?)\"/)[1]}<br>
+                        <label class="trigger">
+                            <input type="checkbox" class="checkbox checkbox--red" /> Show Original
+                            <span class="msg">
+                                ${text}
+                            </span>
+                            </label>
+                        `;
+
+                 
                         $('.message_input').val('');
                         $messages = $('.messages');
                         message_side = message_side === 'left' ? 'right' : 'right';
                         message = new Message({
-                            text: result.match(/\"(.*?)\"/)[1],
+                            text: textMessage,
                             message_side: message_side
                         });
                         message.draw();
