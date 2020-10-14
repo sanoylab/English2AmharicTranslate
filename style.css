@@ -246,7 +246,7 @@ body {
   .wrapper {
     width: 100%;
     height: 100%;
-    height: 90vh;
+    height: 85vh;
     top: 0;
     left: 0;
     -webkit-transform: translateX(0);
@@ -254,6 +254,6 @@ body {
   }
   .wrapper .inner {
     height: 100%;
-    height: 90vh;
+    height: 85vh;
   }
 }
