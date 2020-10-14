@@ -5,7 +5,7 @@ A simple JavaScript application Translates English to Amharic
 https://amharic-english-chat.herokuapp.com/index.html
 
 
-![alt text](https://amharic-english-chat.herokuapp.com/screenshot.png)
+![alt text](https://amharic-english-chat.herokuapp.com/screenshot.PNG)
 
 API Used: 
 
