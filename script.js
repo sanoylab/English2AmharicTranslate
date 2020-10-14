@@ -87,9 +87,7 @@ $(document).ready(function () {
 
     translate(message.text);
    
-    animateText();
-
-    scrollBottom();
+    
   }
 
   const translate = (message) => {
@@ -103,10 +101,22 @@ $(document).ready(function () {
       },
       function printResult(result) {
        
-       
+        const messageText = `
+   
+               ${result.match(/\"(.*?)\"/)[1]} <br />
+               <div id='text'>
+               ${message}
+               </div>
+               <div class="btn-container">
+               <button id="toggle">Read More</button>
+               </div>
+        
+        `
         $content.append(buildHTML.me(result.match(/\"(.*?)\"/)[1]));
 
+        animateText();
 
+        scrollBottom();
 
      
 
