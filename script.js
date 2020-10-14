@@ -58,7 +58,7 @@ $(document).ready(function () {
 
 
 
-  function animateText() {
+  const animateText = () => {
     setTimeout(() => {
       $content
         .find(".message-wrapper")
@@ -68,7 +68,7 @@ $(document).ready(function () {
     }, 350);
   }
 
-  function scrollBottom() {
+  const scrollBottom = () => {
     $($inner).animate(
       {
         scrollTop: $($content).offset().top + $($content).outerHeight(true),
@@ -80,7 +80,7 @@ $(document).ready(function () {
     );
   }
 
-  function buildSent(message) {
+  const buildSent = (message) => {
     console.log("sending: ", message.text);
 
     //$content.append(buildHTML.me(message.text));
@@ -92,7 +92,7 @@ $(document).ready(function () {
     scrollBottom();
   }
 
-  function translate(message) {
+  const translate = (message) => {
     
     doCORSRequest(
       {
@@ -114,7 +114,7 @@ $(document).ready(function () {
       }
     );
   }
-  function doCORSRequest(options, printResult) {
+  const doCORSRequest = (options, printResult) => {
     var x = new XMLHttpRequest();
     x.open(options.method, cors_api_url + options.url);
     x.onload = x.onerror = function () {
@@ -126,7 +126,7 @@ $(document).ready(function () {
     x.send(options.data);
   }
 
-  function sendMessage() {
+  const sendMessage = () => {
     let text = $input.val();
     messenger.send(text);
 
