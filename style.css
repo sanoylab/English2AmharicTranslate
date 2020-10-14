@@ -254,6 +254,6 @@ body {
   }
   .wrapper .inner {
     height: 100%;
-    height: 100vh;
+    height: 90vh;
   }
 }
