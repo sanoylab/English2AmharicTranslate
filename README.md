@@ -1,6 +1,6 @@
 # English Text to Amharic Translator
 
-A simple JavaScript application Translates English to Amharic
+A simple JavaScript application Translates English text to Amharic
 
 DEMO: https://objective-leakey-9bf9db.netlify.app/
 
